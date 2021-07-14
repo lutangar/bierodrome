@@ -1,0 +1,12 @@
+{
+  "name": "bierodrome",
+  "version": "1.0.0",
+  "description": "La bierodrome est un circuit de dégustation des bières issues des micro-brasseries de la Drôme et de ses alentours.",
+  "main": "index.js",
+  "license": "CC-BY-4.0",
+  "private": false,
+  "dependencies": {
+    "@tmcw/togeojson": "^4.4.1",
+    "leaflet": "^1.7.1"
+  }
+}

@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>La bièrodrôme</title>
+    <meta name="description" content="La bièrodrôme est un circuit de dégustation à vélo, des bières issues des micro-brasseries de la Drôme et de ses alentours.">
+    <meta name="author" content="Johan Dufour">
+
+    <meta property="og:title" content="La bièrodrôme">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bierodro.me">
+    <meta property="og:description" content="La bièrodrôme est un circuit de dégustation à vélo, des bières issues des micro-brasseries de la Drôme et de ses alentours.">
+    <meta property="og:image" content="image.png">
+
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css?v=1.7.1" />
+    <script id="breweriesFeatureCollection" type="application/json">
+        {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            4.986594,
+                            44.526948,
+                            0
+                        ]
+                    },
+                    "properties": {
+                        "name": "La Vieille Mule",
+                        "addressLocality": "Le Poët-Laval",
+                        "postalCode": "26160",
+                        "streetAddress": "25A Chemin des ramières - quartier Labry",
+                        "website": "https://www.lavieillemule.com/"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            5.018394,
+                            44.7268693,
+                            0
+                        ]
+                    },
+                    "properties": {
+                        "name": "Les Gens Sérieux",
+                        "addressLocality": "Crest",
+                        "postalCode": "26400",
+                        "streetAddress": "27 Quai André Reynier",
+                        "website": "https://fr-fr.facebook.com/LesGensSerieux/"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            5.0615596,
+                            44.6452522,
+                            0
+                        ]
+                    },
+                    "properties": {
+                        "name": "Markus",
+                        "addressLocality": "Saou",
+                        "postalCode": "26400",
+                        "streetAddress": "Route de Bourdeaux",
+                        "website": "https://www.markusbiere.com"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            5.3531602,
+                            44.7626049,
+                            0
+                        ]
+                    },
+                    "properties": {
+                        "name": "La Manivelle",
+                        "addressLocality": "Die",
+                        "postalCode": "26150",
+                        "streetAddress": "5 Impasse de la Clairette",
+                        "website": "https://www.lamanivelle.beer"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            5.1411754,
+                            44.7887105,
+                            0
+                        ]
+                    },
+                    "properties": {
+                        "name": "Les Trois Becs",
+                        "addressLocality": "Gigors et Lozeron",
+                        "postalCode": "26400",
+                        "streetAddress": "1001A route de Lozeron",
+                        "website": "https://www.brasseriedestroisbecs.fr"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            5.0078867,
+                            44.899484,
+                            0
+                        ]
+                    },
+                    "properties": {
+                        "name": "La Pleine Lune",
+                        "addressLocality": "Chabeuil",
+                        "postalCode": "26120",
+                        "website": "https://www.brasserie-pleinelune.fr",
+                        "streetAddress": "10 Rue Gustave Eiffel, Z.A. la Grue"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            4.9057831,
+                            44.9338319,
+                            0
+                        ]
+                    },
+                    "properties": {
+                        "name": "La Valentinoise",
+                        "addressLocality": "Valence",
+                        "postalCode": "26000",
+                        "streetAddress": "8 Rue Pierre Curie",
+                        "website": "http://brasserielavalentinoise.fr"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            4.8857907,
+                            44.8952409,
+                            0
+                        ]
+                    },
+                    "properties": {
+                        "name": "Les Zythonautes",
+                        "addressLocality": "Valence",
+                        "postalCode": "26000",
+                        "streetAddress": "35 Allée Ducretet",
+                        "website": "https://m.facebook.com/pages/category/Brewery/Les-Zythonautes-416423465860505/"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            4.7450818,
+                            44.5329386,
+                            0
+                        ]
+                    },
+                    "properties": {
+                        "name": "La FABrique - Brasserie Artisanale & Bar",
+                        "addressLocality": "Montélimar",
+                        "postalCode": "26200",
+                        "streetAddress": "Face Truffaut, 206 Route de Marseille"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            4.733801,
+                            44.9458791,
+                            0
+                        ]
+                    },
+                    "properties": {
+                        "name": "Haarddrech",
+                        "addressLocality": "Alboussière",
+                        "postalCode": "07440",
+                        "streetAddress": "La Chalaye",
+                        "website": "https://www.facebook.com/Brasserie-Haarddr%C3%ABch-1112957252095037/"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            5.4131016,
+                            44.9712217,
+                            0
+                        ]
+                    },
+                    "properties": {
+                        "name": "La Slalom",
+                        "addressLocality": "La Chapelle-en-Vercors",
+                        "postalCode": "26420",
+                        "streetAddress": "Avenue des Sources",
+                        "website": "https://www.brasserie-du-slalom.fr"
+                    }
+                }
+            ]
+        }
+    </script>
+    <style media="all">
+        #map {
+            width: 100%;
+            height: 800px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>La bièrodrôme</h1>
+    🍺<em> Circuit de dégustation des bières issues des micro-brasseries de la Drôme et ses alentours... à vélo! </em>🚲
+</header>
+<main>
+    <h2>Les micro-brasseries de la Drôme et ses alentours</h2>
+    <div id="map"></div>
+</main>
+<footer>
+<a href="https://github.com/lutangar/bierodrome">CC-BY-4.0</a>
+2021
+</footer>
+<script src="node_modules/leaflet/dist/leaflet.js"></script>
+<script>
+    const map = L.map('map').setView([44.727215, 5.021424], 10);
+    L.Icon.Default.prototype.options = {};
+    L.tileLayer(
+        'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
+        {
+            maxZoom: 18,
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1,
+            center: [44.725028, 5.015259]
+        }
+    ).addTo(map);
+
+    const breweriesFeatureCollection = JSON.parse(document.getElementById('breweriesFeatureCollection').textContent);
+
+    function onEachFeature(feature, layer) {
+        layer.bindPopup(`
+            <b>${feature?.properties?.name}</b><br />
+            ${feature?.properties?.streetAddress}<br />
+            ${feature?.properties?.postalCode} ${feature?.properties?.addressLocality}
+            ${feature?.properties?.website ? `<br /><a href="${feature?.properties?.website}" target="_blank">${feature?.properties?.website.replace(/^https?:\/\//, '')}</a>` : ''}
+        `);
+    }
+
+    const breweriesLayer = L.geoJSON(breweriesFeatureCollection, {
+        onEachFeature: onEachFeature
+    }).addTo(map);
+</script>
+</body>
+</html>

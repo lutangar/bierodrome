@@ -2,11 +2,40 @@
   "name": "bierodrome",
   "version": "1.0.0",
   "description": "La bierodrome est un circuit de dégustation des bières issues des micro-brasseries de la Drôme et de ses alentours.",
-  "main": "index.js",
+  "author": "lutangar",
   "license": "CC-BY-4.0",
-  "private": false,
+  "keywords": [
+    "beer",
+    "brewery",
+    "bicycle"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
   "dependencies": {
-    "@tmcw/togeojson": "^4.4.1",
-    "leaflet": "^1.7.1"
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "gatsby": "^3.9.1",
+    "gatsby-plugin-emotion": "^6.9.0",
+    "gatsby-plugin-image": "^1.9.0",
+    "gatsby-plugin-manifest": "^3.9.0",
+    "gatsby-plugin-mdx": "^2.9.0",
+    "gatsby-plugin-react-helmet": "^4.9.0",
+    "gatsby-plugin-react-leaflet": "^3.0.2",
+    "gatsby-plugin-sharp": "^3.9.0",
+    "gatsby-plugin-sitemap": "^4.5.0",
+    "gatsby-source-filesystem": "^3.9.0",
+    "gatsby-transformer-sharp": "^3.9.0",
+    "leaflet": "^1.7.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "react-leaflet": "^3.2.0"
   }
 }

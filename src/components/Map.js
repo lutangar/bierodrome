@@ -1,16 +1,20 @@
 import * as React from "react";
 import 'leaflet/dist/leaflet.css';
+import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
+import iconUrl from 'leaflet/dist/images/marker-icon.png';
+import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 import {MapContainer, TileLayer} from "react-leaflet";
 import breweriesFeatureCollection from "../data/breweriesFeatureCollection.json";
 import BreweryMarker from "./BreweryMarker";
 import L from 'leaflet';
 
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-    iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png').default,
-    iconUrl: require('leaflet/dist/images/marker-icon.png').default,
-    shadowUrl: require('leaflet/dist/images/marker-shadow.png').default
-});
+// console.log('L.Icon', L.Icon);
+// delete L.Icon.Default.prototype._getIconUrl;
+// L.Icon.Default.mergeOptions({
+//     iconRetinaUrl,
+//     iconUrl,
+//     shadowUrl
+// });
 
 const Map = ({ style }) => {
     if (typeof window !== 'undefined') {

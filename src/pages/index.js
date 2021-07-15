@@ -1,10 +1,9 @@
 import * as React from "react"
-
+import { css } from '@emotion/react'
 import breweriesFeatureCollection from '../data/breweriesFeatureCollection.json'
 import githubLogo from '../images/GitHub-Mark-32px.png';
 import Map from "../components/Map";
 
-// styles
 const pageStyles = {
   color: "#232129",
   padding: 96,
@@ -16,18 +15,14 @@ const headingStyles = {
   maxWidth: 375,
 }
 const headingAccentStyles = {
-  color: "#663399",
+  color: "#ffca28",
 }
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
+
+const mainStyle = css`
+  display: flex;
+  flex: 1;
+`
+
 const listStyles = {
   width: '20%',
   marginBottom: 96,
@@ -40,17 +35,15 @@ const listItemStyles = {
   marginBottom: 30,
 }
 
-const linkStyle = {
-  color: "#8954A8",
+const titleStyle = {
+  color: "#c79a00",
   fontWeight: "bold",
   fontSize: 16,
   verticalAlign: "5%",
 }
 
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
+const linkStyle = {
+  color: "#ffca28",
 }
 
 const descriptionStyle = {
@@ -61,41 +54,14 @@ const descriptionStyle = {
   lineHeight: 1.25,
 }
 
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
-
 const mapStyle = {
   width: '80%',
   height: '800px'
 }
 
-// data
-const links = [
-    ...breweriesFeatureCollection.features.map(feature => ({
-      text: feature.properties.name,
-      url: feature.properties.website,
-      description: `${feature?.properties?.streetAddress} ${feature?.properties?.postalCode} ${feature?.properties?.addressLocality}`,
-      color: "#E95800",
-    })),
-]
-
-// markup
 const IndexPage = () => {
   return (
-    <main style={pageStyles}>
+    <div style={pageStyles}>
       <title>La bièrodrôme</title>
       <h1 style={headingStyles}>
         La bièrodrôme
@@ -105,31 +71,32 @@ const IndexPage = () => {
           🍺🚲
         </span>
       </h1>
-      <div style={{ display: 'flex' }}>
+      <main css={mainStyle}>
         <Map style={mapStyle}/>
         <ul style={listStyles}>
-          {links.map((link, i) => (
-            <li key={`brew_${i}_${link.url}`} style={{ ...listItemStyles, color: link.color }}>
+          {breweriesFeatureCollection.features.map(({ properties }) => (
+            <li key={`brewery-menu-item-${properties.name}`} style={{ ...listItemStyles, color: 'goldenrod' }}>
               <span>
-                <a
-                  style={linkStyle}
-                  href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
+                <h3
+                  style={titleStyle}
                 >
-                  {link.text}
+                  {properties.name}
+                </h3>
+                <p style={descriptionStyle}>{properties?.streetAddress} <br/>{properties?.postalCode} {properties?.addressLocality} <br/>
+                   <a
+                       style={linkStyle}
+                       href={`${properties?.website}`}
+                   >
+                  {properties.website}
                 </a>
-                {link.badge && (
-                  <span style={badgeStyle} aria-label="New Badge">
-                    NEW!
-                  </span>
-                )}
-                <p style={descriptionStyle}>{link.description}</p>
+                </p>
               </span>
             </li>
           ))}
         </ul>
-      </div>
+      </main>
       <footer>
-        <a href="https://github.com/lutangar/bierodrome">
+        <a style={linkStyle} href="https://github.com/lutangar/bierodrome">
           CC-BY-4.0
           <img
               alt="Github logo"
@@ -138,7 +105,7 @@ const IndexPage = () => {
         </a>
         2021
       </footer>
-    </main>
+    </div>
   )
 }
 

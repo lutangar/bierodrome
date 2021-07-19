@@ -23,11 +23,14 @@ const mainStyle = css`
   flex: 1;
 `
 
-const listStyles = {
-  width: '20%',
-  marginBottom: 96,
-  paddingLeft: 40,
-}
+const listStyles = css`
+  display: grid;
+  margin-bottom: 96px;
+  padding-left: 40px;
+  grid-auto-rows: minmax(100px, auto);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 1rem;
+`
 const listItemStyles = {
   fontWeight: 300,
   fontSize: 24,
@@ -55,7 +58,7 @@ const descriptionStyle = {
 }
 
 const mapStyle = {
-  width: '80%',
+  width: '100%',
   height: '800px'
 }
 
@@ -73,12 +76,14 @@ const IndexPage = () => {
       </h1>
       <main css={mainStyle}>
         <Map style={mapStyle}/>
-        <ul style={listStyles}>
+      </main>
+      <aside>
+        <ul css={listStyles}>
           {breweriesFeatureCollection.features.map(({ properties }) => (
-            <li key={`brewery-menu-item-${properties.name}`} style={{ ...listItemStyles, color: 'goldenrod' }}>
+              <li key={`brewery-menu-item-${properties.name}`} style={{ ...listItemStyles, color: 'goldenrod' }}>
               <span>
                 <h3
-                  style={titleStyle}
+                    style={titleStyle}
                 >
                   {properties.name}
                 </h3>
@@ -91,10 +96,10 @@ const IndexPage = () => {
                 </a>
                 </p>
               </span>
-            </li>
+              </li>
           ))}
         </ul>
-      </main>
+      </aside>
       <footer>
         <a style={linkStyle} href="https://github.com/lutangar/bierodrome">
           CC-BY-4.0

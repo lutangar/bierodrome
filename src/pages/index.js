@@ -6,9 +6,14 @@ import Map from "../components/Map";
 
 const pageStyles = {
   color: "#232129",
-  padding: 96,
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
 }
+
+const padderStyles = {
+  padding: 96,
+  paddingBottom: 0,
+}
+
 const headingStyles = {
   marginTop: 0,
   marginBottom: 64,
@@ -65,6 +70,7 @@ const mapStyle = {
 const IndexPage = () => {
   return (
     <div style={pageStyles}>
+      <div style={padderStyles}>
       <title>La bièrodrôme</title>
       <h1 style={headingStyles}>
         La bièrodrôme
@@ -74,10 +80,11 @@ const IndexPage = () => {
           🍺🚲
         </span>
       </h1>
+      </div>
       <main css={mainStyle}>
         <Map style={mapStyle}/>
       </main>
-      <aside>
+      <aside style={padderStyles}>
         <ul css={listStyles}>
           {breweriesFeatureCollection.features.map(({ properties }) => (
               <li key={`brewery-menu-item-${properties.name}`} style={{ ...listItemStyles, color: 'goldenrod' }}>

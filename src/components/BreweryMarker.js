@@ -1,5 +1,6 @@
 import * as React from "react";
 import {Marker, Popup} from "react-leaflet";
+import LinkToBreweryWebsite from "./LinkToBreweryWebsite";
 
 const BreweryMarker = ({ feature }) => {
     return (
@@ -8,7 +9,7 @@ const BreweryMarker = ({ feature }) => {
                 <b>{feature?.properties?.name}</b><br />
                 {feature?.properties?.streetAddress}<br />
                 {feature?.properties?.postalCode} {feature?.properties?.addressLocality}
-                {feature?.properties?.website && <><br /><a href="${feature?.properties?.website}" target="_blank">{feature?.properties?.website.replace(/^https?:\/\//, '')}</a></>}
+                {feature?.properties?.website && <><br /><LinkToBreweryWebsite website={feature?.properties?.website} /></>}
             </Popup>
         </Marker>
     )

@@ -197,6 +197,60 @@
         "streetAddress": "Avenue des Sources",
         "website": "https://www.brasserie-du-slalom.fr"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.323353985167055,
+          45.027339304217314,
+          0
+        ]
+      },
+      "properties": {
+        "name": "La Machine",
+        "addressLocality": "Saint-Laurent-en-Royans",
+        "postalCode": "26190",
+        "streetAddress": "Rte de St Jean en Royans",
+        "website": "https://la-machine-brasserie.fr/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.356880588839725,
+          44.75829628136233,
+          0
+        ]
+      },
+      "properties": {
+        "name": "Après l’Orage",
+        "addressLocality": "Die",
+        "postalCode": "26150",
+        "streetAddress": "795 chemin de Chandillon",
+        "website": "https://www.facebook.com/Brasserie-Apr%C3%A8s-lOrage-105830741342146/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.849728909625767,
+          44.88396868390035,
+          0
+        ]
+      },
+      "properties": {
+        "name": "3:6:9",
+        "addressLocality": "Soyons",
+        "postalCode": "07130",
+        "streetAddress": "230 Chem. du Vivier",
+        "website": "https://369craft.beer/"
+      }
     }
   ]
 }

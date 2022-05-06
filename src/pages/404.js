@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
+import { appendUnicodeFavicon } from '../utils';
 
 // styles
 const pageStyles = {
@@ -24,8 +25,8 @@ const codeStyles = {
   borderRadius: 4,
 };
 
-// markup
 const NotFoundPage = () => {
+  appendUnicodeFavicon('🍺');
   return (
     <main style={pageStyles}>
       <title>Not found</title>

@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 import breweriesFeatureCollection from '../data/breweriesFeatureCollection.json';
 import githubLogo from '../images/GitHub-Mark-32px.png';
 import Map from '../components/Map';
+import { appendUnicodeFavicon } from '../utils';
 
 const pageStyles = {
   color: '#232129',
@@ -68,13 +69,7 @@ const mapStyle = {
 };
 
 const IndexPage = () => {
-  document.head.appendChild(
-    Object.assign(document.createElement('link'), {
-      rel: 'icon',
-      href: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👽</text></svg>",
-    })
-  );
-
+  appendUnicodeFavicon('🍺');
   return (
     <div style={pageStyles}>
       <div style={padderStyles}>
